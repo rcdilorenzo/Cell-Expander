@@ -19,8 +19,7 @@ class PickerTableViewCell : UITableViewCell {
     }
     
     func watchFrameChanges() {
-        addObserver(self, forKeyPath: "frame", options: .New, context: nil)
-        checkHeight()
+        addObserver(self, forKeyPath: "frame", options: NSKeyValueObservingOptions.New|NSKeyValueObservingOptions.Initial, context: nil)
     }
     
     func ignoreFrameChanges() {
