@@ -22,7 +22,7 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as PickerTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as! PickerTableViewCell
         cell.titleLabel.text = "Test Title"
         return cell
     }
@@ -48,11 +48,11 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        (cell as PickerTableViewCell).watchFrameChanges()
+        (cell as! PickerTableViewCell).watchFrameChanges()
     }
     
     override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        (cell as PickerTableViewCell).ignoreFrameChanges()
+        (cell as! PickerTableViewCell).ignoreFrameChanges()
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
