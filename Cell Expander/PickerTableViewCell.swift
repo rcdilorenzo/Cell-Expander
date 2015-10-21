@@ -9,6 +9,7 @@
 import UIKit
 
 class PickerTableViewCell : UITableViewCell {
+    var isObserving = false;
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     class var expandedHeight: CGFloat { get { return 200 } }
@@ -19,14 +20,20 @@ class PickerTableViewCell : UITableViewCell {
     }
     
     func watchFrameChanges() {
-        addObserver(self, forKeyPath: "frame", options: NSKeyValueObservingOptions.New|NSKeyValueObservingOptions.Initial, context: nil)
+        if !isObserving {
+            addObserver(self, forKeyPath: "frame", options: [NSKeyValueObservingOptions.New, NSKeyValueObservingOptions.Initial], context: nil)
+            isObserving = true;
+        }
     }
     
     func ignoreFrameChanges() {
-        removeObserver(self, forKeyPath: "frame")
+        if isObserving {
+            removeObserver(self, forKeyPath: "frame")
+            isObserving = false;
+        }
     }
     
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "frame" {
             checkHeight()
         }

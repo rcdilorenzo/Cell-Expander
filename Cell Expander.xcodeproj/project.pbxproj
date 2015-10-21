@@ -159,6 +159,8 @@
 		1C4AADFF1AD430A400FF3F5C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Christian Di Lorenzo";
 				TargetAttributes = {
@@ -409,6 +411,7 @@
 				1C4AAE281AD430A400FF3F5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C4AAE291AD430A400FF3F5C /* Build configuration list for PBXNativeTarget "Cell ExpanderTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +420,7 @@
 				1C4AAE2B1AD430A400FF3F5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

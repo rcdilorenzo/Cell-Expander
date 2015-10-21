@@ -55,6 +55,13 @@ class TableViewController: UITableViewController {
         (cell as! PickerTableViewCell).ignoreFrameChanges()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        for cell in tableView.visibleCells as! [PickerTableViewCell] {
+            cell.ignoreFrameChanges()
+        }
+    }
+    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath == selectedIndexPath {
             return PickerTableViewCell.expandedHeight
